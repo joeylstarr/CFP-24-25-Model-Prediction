@@ -9,7 +9,6 @@ natty <- OSU_v_Notre_Dame
 library(dplyr)
 osu_stats <- natty %>% filter(Teams == "Ohio State")
 nd_stats <- natty %>% filter(Teams == "Notre Dame")
-nd_stats <- natty %>% filter(Teams == "Notre Dame")
 #combine both team stats with "natty_combined"
 natty_combined <- natty %>% bind_rows(osu_stats, nd_stats)
 #offense scoring model
