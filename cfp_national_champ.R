@@ -12,7 +12,7 @@ nd_stats <- natty %>% filter(Teams == "Notre Dame")
 #combine both team stats with "natty_combined"
 natty_combined <- natty %>% bind_rows(osu_stats, nd_stats)
 #offense scoring model
-score_model_off <- lm(pointsscored ~ (offpassyd + offpassydpp + offrushyd + offrushypp -  turnovers - offmissedfg) / offposstime, data = natty_combined)
+score_model_off <- lm(pointsscored ~ (offpassyd + offpassydpp + offrushyd + offrushypp), data = natty_combined)
 summary(score_model_off)
 
 #score model defense
@@ -52,6 +52,7 @@ team2_score <- predicted_offense[2] - predicted_defense[1]
 cat("Predicted Score:\n")
 cat("Team 1 (Ohio State):", round(team1_score, 2), "\n")
 cat("Team 2 (Notre Dame):", round(team2_score, 2), "\n")
+
 
 
 
